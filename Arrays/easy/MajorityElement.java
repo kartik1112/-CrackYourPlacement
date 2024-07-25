@@ -34,20 +34,19 @@ public class MajorityElement {
     }
 
     public static int majorityElement(int[] nums) {
-        Arrays.sort(nums);
-        int counter = 0;
-        int high = 0;
-        int highestCount = nums[0];
-        for (int i = 0; i < nums.length; i++) {
-            if (highestCount == nums[i]) {
-                counter++;
-            }
-            else if (counter>high) {
-                high = counter;
-                highestCount = nums[i];
+        int count = 0;
+        int element = 0;
+        for(int num : nums){
+            if (count == 0 ) {
+                element=num;
+                
+            }else if(num==element){
+                count++;
+            }else{
+                count--;
             }
         }
-        return highestCount;
+        return element;
     }
 
 }
